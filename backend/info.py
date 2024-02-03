@@ -44,6 +44,74 @@ COMMUNITY_INFO = {
     'Washington': {'stateAbrv': 'DC', 'population': 702455},
 }
 
+VALID_STATES = {'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 
+                'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 
+                'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 
+                'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'}
+
+ADMIN_INFO = {
+    'admin1@example.com': {
+        'password': 'admin1_pass',
+        'name': 'Admin One',
+        'communities': ['Washington', 'Columbus']
+    },
+    'admin2@example.com': {
+        'password': 'admin2_pass',
+        'name': 'Admin Two',
+        'communities': ['Dallas', 'Fort Worth']
+    },
+    'john.admin@example.com': {
+        'password': 'john_pass123',
+        'name': 'John Administrator',
+        'communities': ['Townsville', 'Villageville']
+    },
+    'alice.admin@example.com': {
+        'password': 'alice_pass456',
+        'name': 'Alice Administrator',
+        'communities': ['Hamletville', 'Cityburg']
+    },
+    'bob.admin@example.com': {
+        'password': 'bob_pass789',
+        'name': 'Bob Administrator',
+        'communities': ['New York', 'Los Angeles']
+    },
+    'susan.admin@example.com': {
+        'password': 'susan_pass123',
+        'name': 'Susan Administrator',
+        'communities': ['Chicago', 'Houston']
+    },
+    'david.admin@example.com': {
+        'password': 'david_pass456',
+        'name': 'David Administrator',
+        'communities': ['Phoenix', 'Philadelphia']
+    },
+    'emily.admin@example.com': {
+        'password': 'emily_pass789',
+        'name': 'Emily Administrator',
+        'communities': ['San Antonio', 'San Diego']
+    },
+    'michael.admin@example.com': {
+        'password': 'michael_pass123',
+        'name': 'Michael Administrator',
+        'communities': ['Dallas', 'San Jose']
+    },
+    'jessica.admin@example.com': {
+        'password': 'jessica_pass456',
+        'name': 'Jessica Administrator',
+        'communities': ['Austin', 'Jacksonville']
+    },
+    'ryan.admin@example.com': {
+        'password': 'ryan_pass789',
+        'name': 'Ryan Administrator',
+        'communities': ['Fort Worth', 'Columbus']
+    },
+    'lisa.admin@example.com': {
+        'password': 'lisa_pass123',
+        'name': 'Lisa Administrator',
+        'communities': ['Charlotte', 'San Francisco']
+    },
+}
+
 events = {
 
     "Trash Pickup": {

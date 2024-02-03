@@ -1,13 +1,14 @@
-from info import USER_INFO, COMMUNITY_INFO
+from info import USER_INFO, COMMUNITY_INFO, VALID_STATES, ADMIN_INFO
 
+## Functions for Users
 def get_user_info(email):
     user_info = USER_INFO.get(email, None)
     if user_info:
         password = USER_INFO.get('password', None)
         name = user_info.get('name', None)
-        return password, name
+        return name, password
 
-def check_password_match(email, password):
+def check_user_password_match(email, password):
     user_password = USER_INFO.get(email, {}).get('password', None)
     return password == user_password
 
@@ -21,15 +22,46 @@ def add_user(email, password, name):
     USER_INFO[email] = {'password': password, 'name': name}
     print(f"Successfully added user {name}!")
 
-def get_community_info(name):
-    community_info = COMMUNITY_INFO.get(name, None)
-    if community_info:
-        state = COMMUNITY_INFO.get('stateAbrv', None)
-        population = COMMUNITY_INFO('population', None)
-        return state, population
+## Functions for Communities
+def get_community_info(name, state):
+    key = f"{name}_{state}"
+    community_data = COMMUNITY_INFO.get(key, None)
 
+    if community_data:
+        population = community_data.get('population', None)
+        return population
+    else:
+        return None, None
 
-if authenticate_user(username, password):
-    print("Authentication successful.")
-else:
-    print("Authentication failed.")
+def add_community(name, state, pop):
+    key = f"{name}_{state}"
+    
+    # Checks that the community doesn't already exist
+    if key not in COMMUNITY_INFO:
+        # Checks if the state abbreviation is valid
+        if state.upper() in VALID_STATES and len(state) == 2:
+            COMMUNITY_INFO[key] = {'stateAbrv': state.upper(), 'population': pop}
+            print(f"Community '{name}, {state}' added successfully.")
+        else:
+            print(f"Error: '{state}' is not a valid state abbreviation.")
+    else:
+        print(f"Community '{name}, {state}' already exists.")
+
+## Functions for Admins
+def get_admin_info(email)
+    admin_info = ADMIN_INFO.get(email, None)
+    if admin_info:
+        password = USER_INFO.get('password', None)
+        name = ADMIN_INFO.get('name', None)
+        return name, password
+
+def check_admin_password_match(email, password):
+    admin_password = ADMIN_INFO.get(email, {}).get('password', None)
+    return password == admin_password
+
+def add_admin(email, password, name):
+    if email not in ADMIN_INFO:
+        ADMIN_INFO[email] = {'password': password, 'name': name, 'communities': []}
+        print(f"Admin '{name}' added successfully.")
+    else:
+        print(f"Admin '{name}' already exists.")
