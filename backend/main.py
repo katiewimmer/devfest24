@@ -1,4 +1,4 @@
-from info import USER_INFO, COMMUNITY_INFO, VALID_STATES, ADMIN_INFO
+from info import USER_INFO, COMMUNITY_INFO, VALID_STATES, ADMIN_INFO, EVENTS
 
 ## Functions for Users
 def get_user_info(email):
@@ -48,7 +48,7 @@ def add_community(name, state, pop):
         print(f"Community '{name}, {state}' already exists.")
 
 ## Functions for Admins
-def get_admin_info(email)
+def get_admin_info(email):
     admin_info = ADMIN_INFO.get(email, None)
     if admin_info:
         password = USER_INFO.get('password', None)
@@ -65,3 +65,36 @@ def add_admin(email, password, name):
         print(f"Admin '{name}' added successfully.")
     else:
         print(f"Admin '{name}' already exists.")
+
+
+def add_community_info(city, state, population):
+    if city in COMMUNITY_INFO:
+        print("Error: Community already Exists!")
+        return
+    else:
+        COMMUNITY_INFO[city] = {'stateAbrv': state, 'population': population}
+        print(f"Successfully added community {city}!")
+
+
+def add_event(title, community, address, tasks, admin_name):
+
+    if community not in COMMUNITY_INFO:
+        print("Error: Community doesn't exists!")
+        return
+    EVENTS[title] = {"Community" : community,
+                     "Creator" : admin_name,
+                     "Address" : address,
+                     "Members" : [],
+                     "Tasks" : {task : False for task in tasks}}
+    
+
+def add_member_to_event(title, member):
+    if title not in EVENTS:
+        print("Error: Event doesn't exists!")
+    EVENTS[title]["Members"].add(member)
+
+def change_task_status(admin_name, status, event, task):
+    if admin_name not in event:
+        print("Error: Unauthorized User")
+        return
+    EVENTS[event]["tasks"][task] = status

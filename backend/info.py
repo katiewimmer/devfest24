@@ -112,7 +112,7 @@ ADMIN_INFO = {
     },
 }
 
-events = {
+EVENTS = {
 
     "Trash Pickup": {
         "Community": "Columbia University",
