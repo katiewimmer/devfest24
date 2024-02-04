@@ -14,7 +14,9 @@ app = Flask(__name__, template_folder=tmpl_dir)
 def index():
   return render_template('index.html')
 
-
+@app.route('/search')
+def search():
+   return render_template('search.html')
 
 @app.route('/searchbar/', methods=['GET'])
 def searchbar():
@@ -51,16 +53,6 @@ def loggingin():
         login_failed = True
         return render_template('login.html',login_failed=login_failed)
    
-@app.route('/search')
-def search():
-   return render_template('search.html')
-
-@app.route('/searchbar/', methods=['GET'])
-def searchbar():
-  searched = request.args.get('searched')
-  valid_admins,valid_events = town_search(searched)
-  print("EVENTS", valid_admins)
-  return render_template('search.html', admins = valid_admins, events = valid_events)
 
 @app.route('/signup')
 def signup():

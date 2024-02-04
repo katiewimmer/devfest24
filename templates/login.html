@@ -28,10 +28,10 @@
           <div class="collapse navbar-collapse order-md-1" id="navbar-collapsed">
               <ul class="navbar-nav ms-auto">
                   <!--Search Bar-->
-                  <form class="d-flex" role="search">
-                      <input class="form-control ms-auto" type="search" placeholder="City, State" aria-label="Search">
-                      <button class="btn btn btn-outline-primary" type="submit">Search</button>
-                  </form>
+                  <form action="/searchbar" method="GET" class="d-flex" role="search">
+                    <input class="form-control ms-auto" type="search" name="searched" placeholder="City, State" aria-label="Search">
+                    <button class="btn btn btn-outline-" type="submit">Search</button>
+                </form>
                   <!--Link to Other Pages-->
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('index') }}">Home</a>
