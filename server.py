@@ -18,10 +18,23 @@ def login():
 
 @app.route('/loggingin', methods=['GET'])
 def loggingin():
-  
-   print("made it:", admin_email)
+   
    admin_email = request.args.get('admin_email')
+   if admin_email:
+      # call to add admin email
+      print("admin email")
+      return render_template('admin.html')
+
    user_email = request.args.get('user_email')
+   if user_email:
+      # call to add user_email
+      print("user email")
+      return render_template('user.hmtl')
+   
+  
+
+
+   
 
 @app.route('/signup/')
 def signup():
