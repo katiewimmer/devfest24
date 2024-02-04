@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Signup</title>
+    <title>Admin</title>
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -49,43 +49,48 @@
           </div>
       </div>
     </nav>
-
-    <div class="container-fluid">
-        <p class = "salutations"> Hello Administrator: {{ADMINLOG}} </p>
-        <p> Please Fill Out All of the Required Fields! </p>
-        <!--ADD EVENT PARAMETERS-->
-        <form action="/addingevent" method="GET">
-          
-          <div class="name-box">
-            <span class="input-group-text" id="inputGroup-sizing-default">Your Name</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ADMINLOG" value="{{ ADMINLOG }}">
+    <!--Event manages by Admin-->
+    <div class="container py-4">
+        {% for item in events %}
+        <div class="card mx-auto">
+            <div class="d-flex align-items-start">
+                <div class="nav flex-column nav-pills me-3" id="pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active" id="description-tab" data-bs-toggle="pill" data-bs-target="#description-pane" type="button" role="tab" aria-selected="true">Description</button>
+                    <button class="nav-link" id="addTask-tab" data-bs-toggle="pill" data-bs-target="#addEvent-pane" type="button" role="tab" aria-selected="true">Add Tasks</button>
+                </div>
+                <div class="tab-content" id="v-pills-tabContent">
+                    <!--Even Description-->
+                    <div class="tab-pane fade show active" id="description-pane" role="tabpanel"  tabindex="0">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">{{item.Address}}</h6>
+                            <p class="card-text">
+                                Admin: {{item.Creator}} <br>
+                                Status: {{'In Progress' if item.Status == False else 'Completed'}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="addEvent-pane" role="tabpanel"  tabindex="0">
+                        <!--Adding Task to Event-->
+                        <form class="row py-1 g-1 needs-validation" novalidate>
+                            <div class="col-12">
+                              <label for="validationCustom01" class="form-label">Task Name</label>
+                              <input type="text" class="form-control" id="validationCustom01" required>
+                              <div class="valid-feedback">Provide a name for the task.</div>
+                            </div>
+                            <!--Submit taks button-->
+                            <div class="col-12">
+                              <button class="btn btn-primary" type="submit">Add</button>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+            </div>
         </div>
-          <!-- Event Name Box -->
-          <div class="eventname-box">
-              <span class="input-group-text" id="inputGroup-sizing-default">Event Name</span>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="event_name">
-          </div>
-      
-          <!-- Community Box -->
-          <div class="community-box">
-              <span class="input-group-text" id="inputGroup-sizing-default">Community</span>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="event_community">
-          </div>
-      
-          <!-- Address Box -->
-          <div class="address-box">
-              <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="event_address">
-          </div>
-    
-          <!-- Create Event Button -->
-          <div class="input-group mb-3">
-              <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Add An Event</button>
-          </div>
-      </form>
+        {% endfor %}
     </div>
     <!--Footer-->
-    <footer class="container-fluid bg-body-tertiary" id="footer">
+    <footer class="container-fluid sticky-bottom bg-body-tertiary" id="footer">
       <div class="row text-center">
         <div class="col-sm-12 mt-4">
           <h6>This Website Was Built Using the Following Tools:</h6>
@@ -98,30 +103,5 @@
         </div>
       </div>
     </footer>
-    <style>
-
-    .salutations {
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-weight: bolder;
-        font-size: 250%;
-        text-align: center;
-        margin-top: 5%;
-        
-    } .name-box {
-        max-width: 50%;
-        align-content: center;
-    } .eventname-box {
-        max-width: 50%;
-    } .community-box {
-        max-width: 50%;
-    } .address-box {
-        max-width: 50%;
-    } .task-box {
-        max-width: 50%;
-    } .status-box {
-      max-width: 50%;
-    }
-    
-    </style>
   </body>
 </html>
