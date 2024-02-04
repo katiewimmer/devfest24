@@ -76,16 +76,17 @@ def add_community_info(city, state, population):
         print(f"Successfully added community {city}!")
 
 
-def add_event(title, community, address, tasks, admin_name):
+def add_event(title, community, status, address, tasks, admin_name):
 
     if community not in COMMUNITY_INFO:
         print("Error: Community doesn't exists!")
         return
     EVENTS[title] = {"Community" : community,
+                     "Status" : status,
                      "Creator" : admin_name,
                      "Address" : address,
                      "Members" : [],
-                     "Tasks" : {task : False for task in tasks}}
+                     "Tasks" : []}
     
 
 def add_member_to_event(title, member):
@@ -99,11 +100,11 @@ def change_task_status(title, admin_name, status, event, task):
         return
     EVENTS[title][event]["tasks"][task] = status
 
-def add_task(title, event, admin_name, new_task):
+def add_task(event, admin_name, new_task_name):
     if admin_name not in event:
         print("Error: Unauthorized User")
         return
-    EVENTS[title][event]["tasks"][new_task] = False
+    EVENTS[event]["tasks"][new_task_name] = False
 
 def overall_event_status(title, admin, event, status):
     if admin not in event:

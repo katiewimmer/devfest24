@@ -30,7 +30,6 @@ def login():
 
 @app.route('/loggingin', methods=['GET'])
 def loggingin():
-   
    admin_email = request.args.get('admin_email')
    if admin_email:
       admin_password = request.args.get('admin_password')
@@ -52,12 +51,9 @@ def loggingin():
         login_failed = True
         return render_template('login.html',login_failed=login_failed)
       # call to add user_email
-      print("user email")
-      return render_template('user.html')
    
   
 @app.route('/signingup', methods=['GET'])
-
 def signingup():
    admin_name = request.args.get('admin_name')
    admin_email = request.args.get('admin_email')
@@ -74,12 +70,29 @@ def signingup():
    if contributor_email:
       add_user(contributor_email,contributor_password,contributor_name)
       return render_template('login.html')
-   
-@app.route('/signup/')
-def signup():
-   return render_template('signup.html')
+  
 
+@app.route('/addingevent', methods=['GET'])
+def addingevent():
+    event_name = request.args.get('event_name')
+    event_community = request.args.get('event_community')
+    event_status = request.args.get('event_status')
+    event_address = request.args.get('event_address')
+    ADMINLOG = request.args.get('ADMINLOG')
+    
+    add_event(event_name, event_community, event_status, event_address, [], ADMINLOG)
 
+    return render_template('admin.html')
+
+@app.route('/addingtask')
+def addingtask():
+   task_event = request.args.get('task_event')
+   admin_name = request.args.get('ADMINLOG')
+   new_task_name = request.args.get('task_name')
+
+   add_task(task_event, admin_name, new_task_name)
+
+   return render_template("admin.html")
 #
 # This is an example of a different path.  You can see it at:
 #
