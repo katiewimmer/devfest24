@@ -48,10 +48,10 @@
     <div class="container-fluid" id="content">
         <form action="/searchbar" method="GET" class="d-flex mx-auto my-5 w-50" role="search">
             <input class="form-control" type="search" name="searched" placeholder="City, State" aria-label="Search">
-            <button class="btn btn-primary ms-1" type="submit">Search</button>
+            <button class="btn ms-1" style="background-color: #C4FFC4;" type="submit">Search</button>
         </form>
     </div>
-
+    <!--Results of Search-->
     <div class="container py-4">
         {% for item in events %}
         <div class="card mx-auto">
@@ -82,7 +82,7 @@
     <footer class="container-fluid bg-body-quartary" id="footer">
         <div class="row text-center">
         <div class="col-sm-12 mt-4">
-            <h6>This Website Was Built Using the Following Tools:</h6>
+            <h6>This Website Was Built Using:</h6>
             <p>
             <i class="bi bi-bootstrap-fill"></i>
             <a class="link-underline link-underline-opacity-0" href="https://getbootstrap.com/" rel="noopener noreferrer" target="_blank">Bootstrap &nbsp;</a>
