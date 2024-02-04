@@ -51,38 +51,38 @@
     </nav>
 
     <div class="container-fluid">
-        <p class = "salutations"> Hello Administrator: Name </p>
+        <p class = "salutations"> Hello Administrator: {{ADMINLOG}} </p>
         <p> Please Fill Out All of the Required Fields! </p>
         <!--ADD EVENT PARAMETERS-->
-        <div class="name-box">
+        <form action="/addingevent" method="GET">
+          
+          <div class="name-box">
             <span class="input-group-text" id="inputGroup-sizing-default">Your Name</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ADMINLOG" value="{{ ADMINLOG }}">
         </div>
-        <div class="eventname-box">
-            <span class="input-group-text" id="inputGroup-sizing-default">Event Name</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="community-box">
-            <span class="input-group-text" id="inputGroup-sizing-default">Community</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="address-box">
-            <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="task-box">
-            <span class="input-group-text" id="inputGroup-sizing-default">Task Info </span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="status-box">
-            <span class="input-group-text" id="inputGroup-sizing-default">Status</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <!--Create Event Button-->
-        <div class="input-group mb-3">
-            <button class="btn btn-outline-secondary" action="/add_event" type="button" id="button-addon1">Add An Event</button>
-            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-        </div>
+          <!-- Event Name Box -->
+          <div class="eventname-box">
+              <span class="input-group-text" id="inputGroup-sizing-default">Event Name</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="event_name">
+          </div>
+      
+          <!-- Community Box -->
+          <div class="community-box">
+              <span class="input-group-text" id="inputGroup-sizing-default">Community</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="event_community">
+          </div>
+      
+          <!-- Address Box -->
+          <div class="address-box">
+              <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="event_address">
+          </div>
+    
+          <!-- Create Event Button -->
+          <div class="input-group mb-3">
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Add An Event</button>
+          </div>
+      </form>
     </div>
     <!--Footer-->
     <footer class="container-fluid bg-body-tertiary" id="footer">

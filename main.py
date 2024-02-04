@@ -49,11 +49,8 @@ def add_community(name, state, pop):
 
 ## Functions for Admins
 def get_admin_info(email):
-    admin_info = ADMIN_INFO.get(email, None)
-    if admin_info:
-        password = USER_INFO.get('password', None)
-        name = ADMIN_INFO.get('name', None)
-        return name
+    if email in ADMIN_INFO:
+        return ADMIN_INFO[email]['name']
 
 def check_admin_password_match(email, password):
     admin_password = ADMIN_INFO.get(email, {}).get('password', None)
@@ -75,13 +72,20 @@ def add_community_info(city, state, population):
         COMMUNITY_INFO[city] = {'stateAbrv': state, 'population': population}
         print(f"Successfully added community {city}!")
 
-
 def add_event(title, community, status, address, tasks, admin_name):
-
-    if community not in COMMUNITY_INFO:
-        print("Error: Community doesn't exists!")
+    
+    city = ''
+    for ch in community:
+        if ch != ',':
+            city += ch
+        else:
+            state = community[-2] + community[-1]
+            break
+    community_tuple = (city, state)
+    if community_tuple not in COMMUNITY_INFO:
+        print("Error: Community already Exists!")
         return
-    EVENTS[title] = {"Community" : community,
+    EVENTS[title] = {"Community" : community_tuple,
                      "Status" : status,
                      "Creator" : admin_name,
                      "Address" : address,
@@ -124,14 +128,15 @@ def town_search(town):
             break
     admin_list = []
     event_list = []
+    com_tup = (city, state)
     for admin in ADMIN_INFO:
         
         for com in ADMIN_INFO[admin]['communities']:
-            if com == (city,state):
+            if com == (city, state):
                 admin_list.append(ADMIN_INFO[admin]['name'])
                 break
     for event in EVENTS:
-        if EVENTS[event]['Community'] == (city,state):
+        if EVENTS[event]['Community'] == (city, state):
             EVENTS[event]["title"] = event
             event_list.append(EVENTS[event])
 

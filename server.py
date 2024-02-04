@@ -22,7 +22,6 @@ def search():
 def searchbar():
   searched = request.args.get('searched')
   valid_admins,valid_events = town_search(searched)
-  print("EVENTS", valid_admins)
   return render_template('search.html', admins = valid_admins, events = valid_events)
 
   
@@ -84,12 +83,11 @@ def admin():
 def addingevent():
     event_name = request.args.get('event_name')
     event_community = request.args.get('event_community')
-    event_status = request.args.get('event_status')
     event_address = request.args.get('event_address')
     ADMINLOG = request.args.get('ADMINLOG')
     
-    add_event(event_name, event_community, event_status, event_address, [], ADMINLOG)
-
+    add_event(event_name, event_community, False, event_address, [], ADMINLOG)
+    print(EVENTS)
     return render_template('admin.html')
 
 @app.route('/addingtask')

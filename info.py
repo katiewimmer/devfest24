@@ -17,32 +17,32 @@ USER_INFO = {
     'william.moore@example.com': {'password': 'wm_pass789', 'name': 'William Moore'},
 }
 
-COMMUNITY_INFO = {
-    'Townsville': {'stateAbrv': 'CA', 'population': 5000},
-    'Villageville': {'stateAbrv': 'NY', 'population': 3000},
-    'Hamletville': {'stateAbrv': 'TX', 'population': 2000},
-    'Cityburg': {'stateAbrv': 'FL', 'population': 8000},
-    'New York': {'stateAbrv': 'NY', 'population': 8336817},
-    'Los Angeles': {'stateAbrv': 'CA', 'population': 3979576},
-    'Chicago': {'stateAbrv': 'IL', 'population': 2693976},
-    'Houston': {'stateAbrv': 'TX', 'population': 2320268},
-    'Phoenix': {'stateAbrv': 'AZ', 'population': 1680992},
-    'Philadelphia': {'stateAbrv': 'PA', 'population': 1584138},
-    'San Antonio': {'stateAbrv': 'TX', 'population': 1547253},
-    'San Diego': {'stateAbrv': 'CA', 'population': 1423851},
-    'Dallas': {'stateAbrv': 'TX', 'population': 1343573},
-    'San Jose': {'stateAbrv': 'CA', 'population': 1030119},
-    'Austin': {'stateAbrv': 'TX', 'population': 964254},
-    'Jacksonville': {'stateAbrv': 'FL', 'population': 903889},
-    'Fort Worth': {'stateAbrv': 'TX', 'population': 895008},
-    'Columbus': {'stateAbrv': 'OH', 'population': 892533},
-    'Charlotte': {'stateAbrv': 'NC', 'population': 885708},
-    'San Francisco': {'stateAbrv': 'CA', 'population': 881549},
-    'Indianapolis': {'stateAbrv': 'IN', 'population': 876384},
-    'Seattle': {'stateAbrv': 'WA', 'population': 744955},
-    'Denver': {'stateAbrv': 'CO', 'population': 716492},
-    'Washington': {'stateAbrv': 'DC', 'population': 702455},
-}
+COMMUNITY_INFO = [
+    ('Townsville', 'CA'),
+    ('Villageville', 'NY'),
+    ('Hamletville', 'TX'),
+    ('Cityburg', 'FL'),
+    ('New York', 'NY'),
+    ('Los Angeles', 'CA'),
+    ('Chicago', 'IL'),
+    ('Houston', 'TX'),
+    ('Phoenix', 'AZ'),
+    ('Philadelphia', 'PA'),
+    ('San Antonio', 'TX'),
+    ('San Diego', 'CA'),
+    ('Dallas', 'TX'),
+    ('San Jose', 'CA'),
+    ('Austin', 'TX'),
+    ('Jacksonville', 'FL'),
+    ('Fort Worth', 'TX'),
+    ('Columbus', 'OH'),
+    ('Charlotte', 'NC'),
+    ('San Francisco', 'CA'),
+    ('Indianapolis', 'IN'),
+    ('Seattle', 'WA'),
+    ('Denver', 'CO'),
+    ('Washington', 'DC'),
+]
 
 VALID_STATES = {'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 
                 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 
@@ -50,6 +50,7 @@ VALID_STATES = {'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI'
                 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'}
 
 ADMIN_INFO = {
+    
     'admin1@example.com': {
         'password': 'admin1_pass',
         'name': 'Admin One',
@@ -57,7 +58,7 @@ ADMIN_INFO = {
     },
     'admin2@example.com': {
         'password': 'admin2_pass',
-        'name': 'Admin Two',
+        'name': 'Pres. Shafik',
         'communities': [('Dallas', 'TX'), ('Columbus' , 'OH')]
     },
     'john.admin@example.com': {
@@ -125,7 +126,7 @@ EVENTS = {
     "Food Drive": {
         "Status" : True,
         "Creator" : 'alice.admin@example.com',
-        "Community": ('Columbus','OH'),
+        "Community": ('Dallas','TX'),
         "Address": "116th and Broadway",
         "members": ["MalcolmX", "Oprah", "ElonMusk"],
         "tasks": {"Catering": True, "Security":True, "Entertainment":True}
