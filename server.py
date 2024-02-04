@@ -47,7 +47,7 @@ def loggingin():
       user_password = request.args.get('user_password')
       if check_user_password_match(user_email, user_password):
         USERLOG = get_user_info(user_email)
-        return render_template('user.html', USERLOG = USERLOG)
+        return render_template('search.html', USERLOG = USERLOG)
       else :
         login_failed = True
         return render_template('login.html',login_failed=login_failed)
