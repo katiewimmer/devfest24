@@ -6,7 +6,7 @@ def get_user_info(email):
     if user_info:
         password = USER_INFO.get('password', None)
         name = user_info.get('name', None)
-        return name, password
+        return name
 
 def check_user_password_match(email, password):
     user_password = USER_INFO.get(email, {}).get('password', None)
@@ -53,7 +53,7 @@ def get_admin_info(email):
     if admin_info:
         password = USER_INFO.get('password', None)
         name = ADMIN_INFO.get('name', None)
-        return name, password
+        return name
 
 def check_admin_password_match(email, password):
     admin_password = ADMIN_INFO.get(email, {}).get('password', None)
@@ -114,19 +114,26 @@ def overall_event_status(title, admin, event, status):
 
 def town_search(town):
 
+    city = ''
     for ch in town:
         if ch != ',':
             city += ch
         else:
-            state = ch + town[-1]
+            state = town[-2] + town[-1]
             break
+    print("TOWN:", city)
+    print("STATE:", state)
     admin_list = []
     event_list = []
     for admin in ADMIN_INFO:
-        for com in admin['communities']:
+        
+        for com in ADMIN_INFO[admin]['communities']:
+            print("Com: ", com,"\n")
             if com == (city,state):
-                admin_list.append(admin)
+                admin_list.append(ADMIN_INFO[admin])
                 break
     for event in EVENTS:
-        if event['Community'] == (city,state):
-            event_list.append(event)
+        if EVENTS[event]['Community'] == (city,state):
+            event_list.append(EVENTS[event])
+
+    return admin_list, event_list
