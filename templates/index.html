@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <!--Name & Icon-->
             <a class="navbar-brand me-auto w-50" href="#logo">
-                <img src="images/theLogo.png" class="rounded-circle" style="width:5%;height:5%" alt="Logo" id="navbar-logo" />
+                <img src="{{ url_for('static', filename='images/theLogo.png') }}" class="rounded-circle" style="width:5%;height:5%" alt="Logo" id="navbar-logo">
                 greenMeet.
             </a>
 
@@ -55,7 +55,7 @@
         <div class="row text-center">
         <div class="col-sm-12 mt-2">
             <!--Logo-->
-            <img src="images/community.png" alt="Community" id="community" />
+            <img src="{{ url_for('static', filename='images/community.png') }}" alt="Image 1">
         </div>
         </div>
     </section>
