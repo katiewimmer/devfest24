@@ -16,7 +16,7 @@ def index():
 def login():
    return render_template('login.html')
 
-@app.route('/login', methods=['GET'])
+@app.route('/loggingin', methods=['GET'])
 def loggingin():
   
    print("made it:", admin_email)
@@ -25,7 +25,7 @@ def loggingin():
 
 @app.route('/signup/')
 def signup():
-    return render_template('signup.html')
+   return render_template('signup.html')
 
 
 #
