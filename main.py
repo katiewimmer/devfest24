@@ -122,16 +122,13 @@ def town_search(town):
         else:
             state = town[-2] + town[-1]
             break
-    print("TOWN:", city)
-    print("STATE:", state)
     admin_list = []
     event_list = []
     for admin in ADMIN_INFO:
         
         for com in ADMIN_INFO[admin]['communities']:
-            print("Com: ", com,"\n")
             if com == (city,state):
-                admin_list.append(ADMIN_INFO[admin])
+                admin_list.append(ADMIN_INFO[admin]['name'])
                 break
     for event in EVENTS:
         if EVENTS[event]['Community'] == (city,state):

@@ -14,16 +14,15 @@ app = Flask(__name__, template_folder=tmpl_dir)
 def index():
   return render_template('index.html')
 
-@app.route('/search')
-def search():
-   return render_template('search.html')
-
 @app.route('/searchbar/', methods=['GET'])
 def searchbar():
   searched = request.args.get('searched')
   valid_admins,valid_events = town_search(searched)
+  print("ADMINS", valid_admins)
   return render_template('search.html', admins = valid_admins, events = valid_events)
 
+
+  
 @app.route('/login/')
 def login():
    return render_template('login.html')
@@ -50,7 +49,6 @@ def loggingin():
       else :
         login_failed = True
         return render_template('login.html',login_failed=login_failed)
-      # call to add user_email
    
   
 @app.route('/signingup', methods=['GET'])
