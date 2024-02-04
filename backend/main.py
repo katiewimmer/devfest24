@@ -93,8 +93,20 @@ def add_member_to_event(title, member):
         print("Error: Event doesn't exists!")
     EVENTS[title]["Members"].add(member)
 
-def change_task_status(admin_name, status, event, task):
+def change_task_status(title, admin_name, status, event, task):
     if admin_name not in event:
         print("Error: Unauthorized User")
         return
-    EVENTS[event]["tasks"][task] = status
+    EVENTS[title][event]["tasks"][task] = status
+
+def add_task(title, event, admin_name, new_task):
+    if admin_name not in event:
+        print("Error: Unauthorized User")
+        return
+    EVENTS[title][event]["tasks"][new_task] = False
+
+def overall_event_status(title, admin, event, status):
+    if admin not in event:
+        print("Error: Unauthorized User")
+        return
+    EVENTS[title][event]["Overall"] = status
