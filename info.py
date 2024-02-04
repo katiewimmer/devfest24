@@ -116,6 +116,7 @@ EVENTS = {
 
     "Trash Pickup": {
         "Status" : False,
+        "Creator" : 'ryan.admin@example.com',
         "Community": ('Columbus','OH'),
         "Address": "116th and Broadway",
         "members": ["JeffBezos", "SigmundFreud", "BarackObama"],
@@ -123,6 +124,7 @@ EVENTS = {
     },
     "Food Drive": {
         "Status" : True,
+        "Creator" : 'alice.admin@example.com',
         "Community": ('Columbus','OH'),
         "Address": "116th and Broadway",
         "members": ["MalcolmX", "Oprah", "ElonMusk"],
@@ -130,6 +132,7 @@ EVENTS = {
     },
     "Side Walk Sweeping": {
         "Status" : False,
+        'Creator' : 'john.admin@example.com',
         "Community": ('Columbus','OH'),
         "Address": "Manhattan",
         "members": ["Grace", "Heidi", "Ivan"],

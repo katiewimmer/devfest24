@@ -49,17 +49,45 @@
           </div>
       </div>
     </nav>
+
     <div class="container-fluid">
         <p class = "salutations"> Hello Administrator: Name </p>
+        <p> Please Fill Out All of the Required Fields! </p>
+        <!--ADD EVENT PARAMETERS-->
+        <div class="name-box">
+            <span class="input-group-text" id="inputGroup-sizing-default">Your Name</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="eventname-box">
+            <span class="input-group-text" id="inputGroup-sizing-default">Event Name</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="community-box">
+            <span class="input-group-text" id="inputGroup-sizing-default">Community</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="address-box">
+            <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="task-box">
+            <span class="input-group-text" id="inputGroup-sizing-default">Task Info </span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="status-box">
+            <span class="input-group-text" id="inputGroup-sizing-default">Status</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
         <!--Create Event Button-->
-        <form action="/add_event" method="post">
-             <button type = "submit" class="add"> Add An Event</button>
-        </form>
+        <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" action="/add_event" type="button" id="button-addon1">Add An Event</button>
+            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        </div>
     </div>
     <!--Footer-->
     <footer class="container-fluid bg-body-tertiary" id="footer">
       <div class="row text-center">
-      <div class="col-sm-12 mt-4">
+        <div class="col-sm-12 mt-4">
           <h6>This Website Was Built Using the Following Tools:</h6>
           <p>
           <i class="bi bi-bootstrap-fill"></i>
@@ -67,7 +95,7 @@
           <i class="bi bi-github"></i>
           <a class="link-underline link-underline-opacity-0" href="https://github.com/katiewimmer/devfest24" rel="noopener noreferrer" target="_blank">Github &nbsp;</a>
           </p>
-      </div>
+        </div>
       </div>
     </footer>
     <style>
@@ -79,7 +107,20 @@
         text-align: center;
         margin-top: 5%;
         
-    } 
+    } .name-box {
+        max-width: 50%;
+        align-content: center;
+    } .eventname-box {
+        max-width: 50%;
+    } .community-box {
+        max-width: 50%;
+    } .address-box {
+        max-width: 50%;
+    } .task-box {
+        max-width: 50%;
+    } .status-box {
+      max-width: 50%;
+    }
     
     </style>
   </body>
