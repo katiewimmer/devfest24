@@ -70,20 +70,25 @@
           <div class="tab-pane fade show active" id="admin-tab-pane" role="tabpanel" aria-labelledby="admin-tab" tabindex="0">
             <div class="card-body">
               <!--Title-->
-              <h5 class="card-title text-center">Signup for Administrator</h5>
-              <form >
+              <h5 class="cadmin_email = request.args.get('admin_email')ard-title text-center">Signup for Administrator</h5>
+              <form action="/signingup" method="GET">
                 <div class="mb-3">
-                  <!--Requesting ID-->
-                  <label for="exampleInputEmail1" class="form-label">ID</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <!--Requesting Name-->
+                  <label for="exampleInputEmail1" class="form-label">Name</label>
+                  <input type="text" class="form-control" name="admin_name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <!--Requesting Email-->
+                  <label for="exampleInputEmail1" class="form-label">Email</label>
+                  <input type="email" class="form-control" name="admin_email" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <!--Requesting Password-->
                   <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="password" class="form-control" name="admin_password">
                 </div>
                 <!--Signup Button-->
-                  <button type="login" class="btn btn-primary">Signup</button>
+                  <button type="submit" class="btn btn-primary">Signup</button>
               </form>
             </div>
           </div>
@@ -92,19 +97,24 @@
             <div class="card-body">
               <!--Title-->
               <h5 class="card-title text-center">Signup for Contributors</h5>
-              <form>
+              <form action="/signingup" method="GET">
                 <div class="mb-3">
-                  <!--Requesting ID-->
-                  <label for="exampleInputEmail1" class="form-label">ID</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <!--Requesting Name-->
+                  <label for="exampleInputEmail1" class="form-label">Name</label>
+                  <input type="text" class="form-control" name="contributor_name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <!--Requesting Email-->
+                  <label for="exampleInputEmail1" class="form-label">Email</label>
+                  <input type="email" class="form-control" name="contributor_email" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <!--Requesting Password-->
                   <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="password" class="form-control" name="contributor_password">
                 </div>
                 <!--Signup Button-->
-                <button type="login" class="btn btn-primary">Signup</button>
+                  <button type="submit" class="btn btn-primary">Signup</button>
               </form>
             </div>
           </div>

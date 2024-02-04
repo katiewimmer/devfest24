@@ -32,7 +32,14 @@ def loggingin():
       return render_template('user.hmtl')
    
   
+@app.route('/signingup', methods=['GET'])
+admin_name = request.args.get('admin_name')
+admin_email = request.args.get('admin_email')
+admin_password = request.args.get('admin_password')
 
+contributor_name = request.args.get('contributor_name')
+contributor_email = request.args.get('contributor_email')
+contributor_password = request.args.get('contributor_password')
 
    
 
