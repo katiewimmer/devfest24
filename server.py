@@ -2,7 +2,7 @@
 """
 GreenMeet. server.py file
 """
-from main import check_admin_password_match, check_user_password_match, town_search
+from main import check_admin_password_match, check_user_password_match, town_search, get_user_info, get_admin_info
 import os
 from flask import Flask, request, render_template, session, g, redirect, Response, abort, url_for, send_from_directory
 
@@ -16,8 +16,8 @@ def index():
 @app.route('/searchbar/', methods=['GET'])
 def searchbar():
   searched = request.args.get('searched')
-  valid_events = town_search(searched)
-  return valid_events ## ALSO NEED TO REDIRECT
+  valid_admins,valid_events = town_search(searched)
+  return render_template('search.html', admins = valid_admins, events = valid_events)
   
 @app.route('/login/')
 def login():
@@ -30,7 +30,8 @@ def loggingin():
    if admin_email:
       admin_password = request.args.get('admin_password')
       if check_admin_password_match(admin_email, admin_password):
-        return render_template('admin.html')
+        ADMINLOG = get_admin_info(admin_email)
+        return render_template('admin.html', ADMINLOG = ADMINLOG)
       else :
         login_failed = True
         return render_template('login.html', login_failed=login_failed)
@@ -40,7 +41,8 @@ def loggingin():
    if user_email:
       user_password = request.args.get('user_password')
       if check_user_password_match(user_email, user_password):
-        return render_template('user.html')
+        USERLOG = get_user_info(user_email)
+        return render_template('user.html', USERLOG = USERLOG)
       else :
         login_failed = True
         return render_template('login.html',login_failed=login_failed)
@@ -56,7 +58,6 @@ def loggingin():
 #contributor_email = request.args.get('contributor_email')
 #contributor_password = request.args.get('contributor_password')
 
-   
 
 @app.route('/signup/')
 def signup():
