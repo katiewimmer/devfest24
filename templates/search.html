@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <!--Name & Icon-->
             <a class="navbar-brand me-auto w-50" href="#logo">
-                <img src="static/images/theLogo.png" class="rounded-circle" style="width:5%;height:5%" alt="Logo" id="navbar-logo">
+                <img src="../static/images/theLogo.png" class="rounded-circle" style="width:5%;height:5%" alt="Logo" id="navbar-logo">
                 greenMeet.
             </a>
 
@@ -60,7 +60,7 @@
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{item.Address}}</h6>
                 <p class="card-text">
                     Admin: {{item.Creator}} <br>
-                    Status: {{item.Status}}
+                    Status: {{'In Progress' if item.Status == False else 'Completed'}}
                 </p>
             </div>
         </div>
