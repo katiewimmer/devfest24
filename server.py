@@ -21,7 +21,6 @@ def searchbar():
   print("ADMINS", valid_admins)
   return render_template('search.html', admins = valid_admins, events = valid_events)
 
-
   
 @app.route('/login/')
 def login():
