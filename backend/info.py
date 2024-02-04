@@ -53,62 +53,62 @@ ADMIN_INFO = {
     'admin1@example.com': {
         'password': 'admin1_pass',
         'name': 'Admin One',
-        'communities': ['Washington', 'Columbus']
+        'communities': [('Washington' , 'DC'), ('Columbus' , 'OH')]
     },
     'admin2@example.com': {
         'password': 'admin2_pass',
         'name': 'Admin Two',
-        'communities': ['Dallas', 'Fort Worth']
+        'communities': [('Dallas', 'TX'), ('Fort Worth', 'TX')]
     },
     'john.admin@example.com': {
         'password': 'john_pass123',
         'name': 'John Administrator',
-        'communities': ['Townsville', 'Villageville']
+        'communities': [('Townsville', 'CA') , ('Villageville' , 'NY')]
     },
     'alice.admin@example.com': {
         'password': 'alice_pass456',
         'name': 'Alice Administrator',
-        'communities': ['Hamletville', 'Cityburg']
+        'communities': [('Hamletville', 'TX') ,('Cityburg','FL')]
     },
     'bob.admin@example.com': {
         'password': 'bob_pass789',
         'name': 'Bob Administrator',
-        'communities': ['New York', 'Los Angeles']
+        'communities': [('New York', 'NY'), ('Los Angeles','CA')]
     },
     'susan.admin@example.com': {
         'password': 'susan_pass123',
         'name': 'Susan Administrator',
-        'communities': ['Chicago', 'Houston']
+        'communities': [('Chicago','IL') , ('Houston', 'TX')]
     },
     'david.admin@example.com': {
         'password': 'david_pass456',
         'name': 'David Administrator',
-        'communities': ['Phoenix', 'Philadelphia']
+        'communities': [('Phoenix','AZ'), ('Philadelphia','PA')]
     },
     'emily.admin@example.com': {
         'password': 'emily_pass789',
         'name': 'Emily Administrator',
-        'communities': ['San Antonio', 'San Diego']
+        'communities': [('San Antonio','TX'),('San Diego','CA')]
     },
     'michael.admin@example.com': {
         'password': 'michael_pass123',
         'name': 'Michael Administrator',
-        'communities': ['Dallas', 'San Jose']
+        'communities': [('Dallas','TX'), ('San Jose','CA')]
     },
     'jessica.admin@example.com': {
         'password': 'jessica_pass456',
         'name': 'Jessica Administrator',
-        'communities': ['Austin', 'Jacksonville']
+        'communities': [('Austin','TX'),('Jacksonville','FL')]
     },
     'ryan.admin@example.com': {
         'password': 'ryan_pass789',
         'name': 'Ryan Administrator',
-        'communities': ['Fort Worth', 'Columbus']
+        'communities': [('Fort Worth','TX'),('Columbus','OH')]
     },
     'lisa.admin@example.com': {
         'password': 'lisa_pass123',
         'name': 'Lisa Administrator',
-        'communities': ['Charlotte', 'San Francisco']
+        'communities': [('Charlotte','NC'), ('San Francisco','CA')]
     },
 }
 
@@ -116,21 +116,21 @@ EVENTS = {
 
     "Trash Pickup": {
         "Status" : False,
-        "Community": "Columbia University",
+        "Community": ('Charlotte','NC'),
         "Address": "116th and Broadway",
         "members": ["JeffBezos", "SigmundFreud", "BarackObama"],
         "tasks": {"Setup": False , "Registration":True, "Cleanup":False}
     },
     "Food Drive": {
         "Status" : True,
-        "Community": "Columbia University",
+        "Community": ('Columbus','OH'),
         "Address": "116th and Broadway",
         "members": ["MalcolmX", "Oprah", "ElonMusk"],
         "tasks": {"Catering": True, "Security":True, "Entertainment":True}
     },
     "Side Walk Sweeping": {
         "Status" : False,
-        "Community": "New York University",
+        "Community": ('Hamletville', 'TX'),
         "Address": "Manhattan",
         "members": ["Grace", "Heidi", "Ivan"],
         "tasks": {"Invitations": False, "Decorations": False, "Photography": True}

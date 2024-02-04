@@ -110,3 +110,23 @@ def overall_event_status(title, admin, event, status):
         print("Error: Unauthorized User")
         return
     EVENTS[title][event]["Overall"] = status
+
+
+def town_search(town):
+
+    for ch in town:
+        if ch != ',':
+            city += ch
+        else:
+            state = ch + town[-1]
+            break
+    admin_list = []
+    event_list = []
+    for admin in ADMIN_INFO:
+        for com in admin['communities']:
+            if com == (city,state):
+                admin_list.append(admin)
+                break
+    for event in EVENTS:
+        if event['Community'] == (city,state):
+            event_list.append(event)
