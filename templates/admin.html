@@ -34,17 +34,17 @@
                   </form>
                   <!--Link to Other Pages-->
                   <li class="nav-item">
-                      <a class="nav-link" href="home.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="admin.html">Admin</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="contributor.html">Contributor</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-                  </li>
+                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin') }}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('search') }}">Contributor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
                   </ul>
           </div>
       </div>

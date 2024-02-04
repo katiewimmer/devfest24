@@ -34,13 +34,13 @@
                     </form>
                     <!--Link to Other Pages-->
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#admin.html">Admin</a>
+                        <a class="nav-link" href="{{ url_for('login') }}">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contributor.html">Contributor</a>
+                        <a class="nav-link" href="{{ url_for('search') }}">Contributor</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
