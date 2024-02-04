@@ -3,25 +3,24 @@
 GreenMeet. server.py file
 """
 import os
-from flask import Flask, request, render_template, session, g, redirect, Response, abort, url_for
+from flask import Flask, request, render_template, session, g, redirect, Response, abort, url_for, send_from_directory
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask(__name__, template_folder=tmpl_dir)
 
 @app.route('/')
 def index():
-  return render_template("index.html")
+  return render_template('index.html')
 
-@app.route('/loginin/')
-def filmmaker():
-    return render_template('loginin.html')
-
-@app.route('/filmmaker/')
-def filmmaker():
-    return render_template('filmmaker.html')
+@app.route('/login', methods=['GET'])
+def loggingin():
+  
+   print("made it:", admin_email)
+   admin_email = request.args.get('admin_email')
+   user_email = request.args.get('user_email')
 
 @app.route('/signup/')
-def filmmaker():
+def signup():
     return render_template('signup.html')
 
 
