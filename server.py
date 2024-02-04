@@ -18,6 +18,7 @@ def index():
 def searchbar():
   searched = request.args.get('searched')
   valid_admins,valid_events = town_search(searched)
+  print("ADMINS", valid_admins)
   return render_template('search.html', admins = valid_admins, events = valid_events)
 
 
@@ -28,7 +29,6 @@ def login():
 
 @app.route('/loggingin', methods=['GET'])
 def loggingin():
-   
    admin_email = request.args.get('admin_email')
    if admin_email:
       admin_password = request.args.get('admin_password')
@@ -49,16 +49,9 @@ def loggingin():
       else :
         login_failed = True
         return render_template('login.html',login_failed=login_failed)
-      # call to add user_email
-      print("user email")
-      return render_template('user.html')
    
   
 @app.route('/signingup', methods=['GET'])
-
-#admin_name = request.args.get('admin_name')
-#admin_email = request.args.get('admin_email')
-#admin_password = request.args.get('admin_password')
 def signingup():
    admin_name = request.args.get('admin_name')
    admin_email = request.args.get('admin_email')
@@ -75,18 +68,29 @@ def signingup():
    if contributor_email:
       add_user(contributor_email,contributor_password,contributor_name)
       return render_template('login.html')
-   
+  
 
-#contributor_name = request.args.get('contributor_name')
-#contributor_email = request.args.get('contributor_email')
-#contributor_password = request.args.get('contributor_password')
+@app.route('/addingevent', methods=['GET'])
+def addingevent():
+    event_name = request.args.get('event_name')
+    event_community = request.args.get('event_community')
+    event_status = request.args.get('event_status')
+    event_address = request.args.get('event_address')
+    ADMINLOG = request.args.get('ADMINLOG')
+    
+    add_event(event_name, event_community, event_status, event_address, [], ADMINLOG)
 
+    return render_template('admin.html')
 
-@app.route('/signup/')
-def signup():
-   return render_template('signup.html')
+@app.route('/addingtask')
+def addingtask():
+   task_event = request.args.get('task_event')
+   admin_name = request.args.get('ADMINLOG')
+   new_task_name = request.args.get('task_name')
 
+   add_task(task_event, admin_name, new_task_name)
 
+   return render_template("admin.html")
 #
 # This is an example of a different path.  You can see it at:
 #
