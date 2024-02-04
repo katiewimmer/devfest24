@@ -115,21 +115,24 @@ ADMIN_INFO = {
 EVENTS = {
 
     "Trash Pickup": {
+        "Status" : False,
         "Community": "Columbia University",
         "Address": "116th and Broadway",
         "members": ["JeffBezos", "SigmundFreud", "BarackObama"],
-        "tasks": {"Setup": 0 , "Registration":1, "Cleanup":0}
+        "tasks": {"Setup": False , "Registration":True, "Cleanup":False}
     },
     "Food Drive": {
+        "Status" : True,
         "Community": "Columbia University",
         "Address": "116th and Broadway",
         "members": ["MalcolmX", "Oprah", "ElonMusk"],
-        "tasks": {"Catering": 0, "Security":1, "Entertainment":0}
+        "tasks": {"Catering": True, "Security":True, "Entertainment":True}
     },
-    "Event3": {
+    "Side Walk Sweeping": {
+        "Status" : False,
         "Community": "New York University",
         "Address": "Manhattan",
         "members": ["Grace", "Heidi", "Ivan"],
-        "tasks": ["Invitations", "Decorations", "Photography"]
+        "tasks": {"Invitations": False, "Decorations": False, "Photography": True}
     }
 }
