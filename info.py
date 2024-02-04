@@ -58,17 +58,17 @@ ADMIN_INFO = {
     'admin2@example.com': {
         'password': 'admin2_pass',
         'name': 'Admin Two',
-        'communities': [('Dallas', 'TX'), ('Fort Worth', 'TX')]
+        'communities': [('Dallas', 'TX'), ('Columbus' , 'OH')]
     },
     'john.admin@example.com': {
         'password': 'john_pass123',
         'name': 'John Administrator',
-        'communities': [('Townsville', 'CA') , ('Villageville' , 'NY')]
+        'communities': [('Townsville', 'CA') , ('Columbus' , 'OH')]
     },
     'alice.admin@example.com': {
         'password': 'alice_pass456',
         'name': 'Alice Administrator',
-        'communities': [('Hamletville', 'TX') ,('Cityburg','FL')]
+        'communities': [('Hamletville', 'TX') ,('Columbus' , 'OH')]
     },
     'bob.admin@example.com': {
         'password': 'bob_pass789',
@@ -116,7 +116,7 @@ EVENTS = {
 
     "Trash Pickup": {
         "Status" : False,
-        "Community": ('Charlotte','NC'),
+        "Community": ('Columbus','OH'),
         "Address": "116th and Broadway",
         "members": ["JeffBezos", "SigmundFreud", "BarackObama"],
         "tasks": {"Setup": False , "Registration":True, "Cleanup":False}
@@ -130,7 +130,7 @@ EVENTS = {
     },
     "Side Walk Sweeping": {
         "Status" : False,
-        "Community": ('Hamletville', 'TX'),
+        "Community": ('Columbus','OH'),
         "Address": "Manhattan",
         "members": ["Grace", "Heidi", "Ivan"],
         "tasks": {"Invitations": False, "Decorations": False, "Photography": True}

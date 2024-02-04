@@ -132,6 +132,7 @@ def town_search(town):
                 break
     for event in EVENTS:
         if EVENTS[event]['Community'] == (city,state):
+            EVENTS[event]["title"] = event
             event_list.append(EVENTS[event])
 
     return admin_list, event_list

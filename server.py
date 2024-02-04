@@ -18,7 +18,7 @@ def index():
 def searchbar():
   searched = request.args.get('searched')
   valid_admins,valid_events = town_search(searched)
-  print("ADMINS", valid_admins)
+  print("EVENTS", valid_admins)
   return render_template('search.html', admins = valid_admins, events = valid_events)
 
 

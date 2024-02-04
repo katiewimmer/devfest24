@@ -53,11 +53,18 @@
     </div>
 
     <div class="container py-4">
-        {% for item in info_array %}
+        {% for item in events %}
         <div class="card mb-3" style="max-width: 540px;">
             <div class="card-body">
                 <h5 class="card-title">{{ item.title }}</h5>
-                <p class="card-text">{{ item.text }}</p>
+                <p class="card-text">{{ item.Status, item.Address }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        {% for item in admins %}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="card-body">
+                <h5 class="card-title">{{ item }}</h5>
             </div>
         </div>
         {% endfor %}
