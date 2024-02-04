@@ -2,6 +2,7 @@
 """
 GreenMeet. server.py file
 """
+from main import check_admin_password_match, check_user_password_match, town_search
 import os
 from flask import Flask, request, render_template, session, g, redirect, Response, abort, url_for, send_from_directory
 
@@ -12,6 +13,12 @@ app = Flask(__name__, template_folder=tmpl_dir)
 def index():
   return render_template('index.html')
 
+@app.route('/searchbar/', methods=['GET'])
+def searchbar():
+  searched = request.args.get('searched')
+  valid_events = town_search(searched)
+  return valid_events ## ALSO NEED TO REDIRECT
+  
 @app.route('/login/')
 def login():
    return render_template('login.html')
@@ -21,25 +28,33 @@ def loggingin():
    
    admin_email = request.args.get('admin_email')
    if admin_email:
-      # call to add admin email
-      print("admin email")
-      return render_template('admin.html')
+      admin_password = request.args.get('admin_password')
+      if check_admin_password_match(admin_email, admin_password):
+        return render_template('admin.html')
+      else :
+        login_failed = True
+        return render_template('login.html', login_failed=login_failed)
+   
 
    user_email = request.args.get('user_email')
    if user_email:
-      # call to add user_email
-      print("user email")
-      return render_template('user.hmtl')
+      user_password = request.args.get('user_password')
+      if check_user_password_match(user_email, user_password):
+        return render_template('user.html')
+      else :
+        login_failed = True
+        return render_template('login.html',login_failed=login_failed)
    
   
 @app.route('/signingup', methods=['GET'])
-admin_name = request.args.get('admin_name')
-admin_email = request.args.get('admin_email')
-admin_password = request.args.get('admin_password')
 
-contributor_name = request.args.get('contributor_name')
-contributor_email = request.args.get('contributor_email')
-contributor_password = request.args.get('contributor_password')
+#admin_name = request.args.get('admin_name')
+#admin_email = request.args.get('admin_email')
+#admin_password = request.args.get('admin_password')
+
+#contributor_name = request.args.get('contributor_name')
+#contributor_email = request.args.get('contributor_email')
+#contributor_password = request.args.get('contributor_password')
 
    
 
