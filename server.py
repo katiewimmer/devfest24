@@ -14,6 +14,8 @@ app = Flask(__name__, template_folder=tmpl_dir)
 def index():
   return render_template('index.html')
 
+
+
 @app.route('/searchbar/', methods=['GET'])
 def searchbar():
   searched = request.args.get('searched')
