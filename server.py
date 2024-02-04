@@ -5,6 +5,7 @@ GreenMeet. server.py file
 from main import check_admin_password_match, check_user_password_match, town_search, get_user_info, get_admin_info
 import os
 from flask import Flask, request, render_template, session, g, redirect, Response, abort, url_for, send_from_directory
+from main import *
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask(__name__, template_folder=tmpl_dir)
@@ -46,6 +47,9 @@ def loggingin():
       else :
         login_failed = True
         return render_template('login.html',login_failed=login_failed)
+      # call to add user_email
+      print("user email")
+      return render_template('user.html')
    
   
 @app.route('/signingup', methods=['GET'])
@@ -53,6 +57,23 @@ def loggingin():
 #admin_name = request.args.get('admin_name')
 #admin_email = request.args.get('admin_email')
 #admin_password = request.args.get('admin_password')
+def signingup():
+   admin_name = request.args.get('admin_name')
+   admin_email = request.args.get('admin_email')
+   admin_password = request.args.get('admin_password')
+
+   if admin_email:
+      add_admin(admin_email,admin_password,admin_name)
+      return render_template('login.html')
+
+   contributor_name = request.args.get('contributor_name')
+   contributor_email = request.args.get('contributor_email')
+   contributor_password = request.args.get('contributor_password')
+
+   if contributor_email:
+      add_user(contributor_email,contributor_password,contributor_name)
+      return render_template('login.html')
+   
 
 #contributor_name = request.args.get('contributor_name')
 #contributor_email = request.args.get('contributor_email')
